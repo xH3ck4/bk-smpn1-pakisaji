@@ -2065,7 +2065,7 @@ html[data-contrast="high"] .career-card__title {
 
 @media (min-width: 1024px) {
   .posters-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -2299,6 +2299,73 @@ html[data-contrast="high"] .info-card__head {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+.bk-contact-list {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bk-contact-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+}
+
+.bk-contact-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bk-contact-list li strong {
+  font-size: 0.9rem;
+  color: var(--navy-900);
+}
+
+.bk-contact-list li span {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.bk-contact-list a {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--emerald-600);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bk-contact-list a:hover {
+  text-decoration: underline;
+}
+
+.bk-contact-hint {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border-left: 4px solid var(--amber-400);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+.bk-contact-hint p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.bk-contact-hint p + p {
+  margin-top: 4px;
 }
 
 .booking-box {

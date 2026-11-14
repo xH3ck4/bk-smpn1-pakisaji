@@ -1015,6 +1015,35 @@
   const bookingResult = $('#bookingResult');
 
   if (bookingForm && bookingResult) {
+    const resolveBkContact = (kelasValue) => {
+      const gradeDigit = String(kelasValue || '').match(/[789]/)?.[0];
+      if (gradeDigit === '7') {
+        return {
+          name: 'Bu Zub',
+          grade: 'BK Kelas 7',
+          phoneDisplay: '0812-4962-4724',
+          wa: 'https://wa.me/6281249624724'
+        };
+      }
+      if (gradeDigit === '8') {
+        return {
+          name: 'Bu Rini',
+          grade: 'BK Kelas 8',
+          phoneDisplay: '0896-5657-5419',
+          wa: 'https://wa.me/6289656575419'
+        };
+      }
+      if (gradeDigit === '9') {
+        return {
+          name: 'Pak Sulis',
+          grade: 'BK Kelas 9',
+          phoneDisplay: '0896-5657-5419',
+          wa: 'https://wa.me/6289656575419'
+        };
+      }
+      return null;
+    };
+
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const nama = ($('#bkNama')?.value || '').trim();
@@ -1024,6 +1053,15 @@
       const waktu = $('#bkWaktu')?.value || 'Jam Istirahat';
       const pesan = ($('#bkPesan')?.value || '').trim();
       const ticketCode = 'BK-PKJ-' + Math.floor(1000 + Math.random() * 9000);
+      const contact = resolveBkContact(kelas);
+      const contactHtml = contact
+        ? `<p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:8px;">
+            <strong>Guru BK Kelasmu:</strong> ${escapeHtml(contact.name)} (${escapeHtml(contact.grade)})<br>
+            <strong>WhatsApp:</strong> <a href="${contact.wa}" target="_blank" rel="noopener noreferrer" style="color:var(--emerald-600);font-weight:700;">${escapeHtml(contact.phoneDisplay)}</a>
+          </p>`
+        : `<p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:8px;">
+            <strong>Kontak Guru BK:</strong> Kelas 7 Bu Zub (0812-4962-4724) · Kelas 8 Bu Rini (0896-5657-5419) · Kelas 9 Pak Sulis (0896-5657-5419)
+          </p>`;
 
       bookingResult.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed var(--border-medium);padding-bottom:10px;margin-bottom:10px;">
@@ -1035,9 +1073,10 @@
           <strong>Topik Layanan:</strong> ${escapeHtml(bidang)}<br>
           <strong>Cara &amp; Waktu:</strong> ${escapeHtml(metode)} • ${escapeHtml(waktu)}
         </p>
+        ${contactHtml}
         ${pesan ? `<p style="font-size:0.84rem;color:var(--text-muted);margin-bottom:10px;"><strong>Catatan Awal:</strong> “${escapeHtml(pesan)}”</p>` : ''}
         <p style="font-size:0.82rem;color:var(--emerald-600);font-weight:700;margin:0;">
-          ✓ Silakan tunjukkan ringkasan tiket ini saat datang ke Ruang BK SMP Negeri 1 Pakisaji. Rahasia ceritamu dijamin aman!
+          ✓ Silakan tunjukkan ringkasan tiket ini saat datang ke Ruang BK, atau hubungi WhatsApp Guru BK sesuai kelasmu. Rahasia ceritamu dijamin aman!
         </p>
       `;
       bookingResult.classList.add('show');
