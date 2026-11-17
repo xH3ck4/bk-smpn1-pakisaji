@@ -2451,10 +2451,85 @@ html[data-contrast="high"] .info-card__head {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 18px 0;
+  padding: 22px 0 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
   text-align: center;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-bottom__copy {
+  margin: 0;
+  max-width: 52rem;
+  line-height: 1.55;
+}
+
+.footer-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
+  padding: 10px 16px;
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(255, 255, 255, 0.04));
+}
+
+.footer-credit__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-credit__name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--amber-400);
+  letter-spacing: 0.01em;
+}
+
+.footer-credit__divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.footer-credit__nim {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-credit__role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.58);
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 560px) {
+  .footer-credit {
+    border-radius: 16px;
+    padding: 12px 14px;
+    gap: 6px 8px;
+  }
+
+  .footer-credit__divider {
+    display: none;
+  }
+
+  .footer-credit__role {
+    width: 100%;
+  }
 }
 
 /* Lightbox Modal */
